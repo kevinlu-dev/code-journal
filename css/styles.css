@@ -1,7 +1,5 @@
 body {
-  margin: 0, auto;
   background-color: rgb(240 240 240);
-  font-weight: 300;
   font-family: sans-serif;
 }
 
@@ -18,7 +16,6 @@ h3 {
 }
 
 form {
-  margin: 0 auto;
   padding: 1rem;
 }
 

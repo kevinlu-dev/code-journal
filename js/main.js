@@ -1,11 +1,9 @@
-/*
 var inputPhotoUrl = document.getElementById('user-photo-url');
 var submitJournalEntry = document.getElementById('code-journal-form');
-
- console.log(submitJournalEntry);
+var defaultPhoto = document.getElementById('image-preview');
 
 inputPhotoUrl.addEventListener('input', function (event) {
-  document.getElementById('image-preview').src = event.target.value;
+  defaultPhoto.src = event.target.value;
 });
 
 submitJournalEntry.addEventListener('submit', function (event) {
@@ -16,6 +14,18 @@ submitJournalEntry.addEventListener('submit', function (event) {
     notes: submitJournalEntry.elements.notes.value,
     entryId: data.nextEntryId++
   };
-  console.log(journalAll);
+  data.entries.unshift(journalAll);
+  defaultPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
+
+  var previousEntriesJSON = localStorage.getItem('javascript-local-storage');
+  if (previousEntriesJSON !== null) {
+    data.entries = JSON.parse(previousEntriesJSON);
+  }
+
+  window.addEventListener('beforeunload', function (event) {
+    var entriesJSON = JSON.stringify(data.entries);
+    localStorage.setItem('javascript-local-storage', entriesJSON);
+  });
+
   document.getElementById('code-journal-form').reset();
-}); */
+});
