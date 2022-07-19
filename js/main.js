@@ -16,16 +16,5 @@ submitJournalEntry.addEventListener('submit', function (event) {
   };
   data.entries.unshift(journalAll);
   defaultPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
-
-  var previousEntriesJSON = localStorage.getItem('javascript-local-storage');
-  if (previousEntriesJSON !== null) {
-    data.entries = JSON.parse(previousEntriesJSON);
-  }
-
-  window.addEventListener('beforeunload', function (event) {
-    var entriesJSON = JSON.stringify(data.entries);
-    localStorage.setItem('javascript-local-storage', entriesJSON);
-  });
-
   document.getElementById('code-journal-form').reset();
 });
