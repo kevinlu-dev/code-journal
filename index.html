@@ -17,8 +17,38 @@
 </head>
 <body>
   <header>
+    <h3>Code Journal</h3>
   </header>
   <main>
+    <div data-view="entry-form">
+      <form id="code-journal-form">
+        <h1>New Entry</h1>
+
+        <div class="row">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg" alt="placeholder image" id="image-preview">
+          </div>
+
+          <div class="column-half">
+            <label for="user-title">Title</label>
+            <input required name="title" type="text" id="user-title">
+
+            <label for="user-photo-url">Photo URL</label>
+            <input required name="photourl" type="url" value="" id="user-photo-url" />
+
+          </div>
+        </div>
+        <div class="column-full">
+          <label for="user-message">Notes</label>
+          <textarea required rows="5" name="notes" id="user-message"></textarea>
+
+          <div class="user-submit">
+            <button type="submit">SAVE</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
