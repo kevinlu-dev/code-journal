@@ -18,9 +18,12 @@ function submitFunction(event) {
   data.entries.unshift(journalAll);
   defaultPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
   document.getElementById('code-journal-form').reset();
+
   var ulSelect = document.querySelector('ul');
   var callFunction = journalEntry(journalAll);
   ulSelect.prepend(callFunction);
+  var paraLocation = document.querySelector('.para-location');
+  paraLocation.setAttribute('class', 'hidden');
 
 }
 
@@ -84,24 +87,6 @@ tabContLocation.addEventListener('click', function (event) {
   }
 });
 
-var submitEntriesView = document.querySelector('.user-submit');
-
-submitEntriesView.addEventListener('click', function (event) {
-  var eventTarget = event.target;
-  if (eventTarget.matches('.submit-button')) {
-    var dataViewAttribute = eventTarget.getAttribute('data-view');
-    for (let i = 0; i < viewNodeList.length; i++) {
-      var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
-      if (dataViewAttribute === nodeListAttribute) {
-        viewNodeList[i].setAttribute('class', 'view');
-        data.view = nodeListAttribute;
-      } else if (dataViewAttribute !== nodeListAttribute) {
-        viewNodeList[i].setAttribute('class', 'view hidden');
-      }
-    }
-  }
-});
-
 var newFormView = document.querySelector('.user-new');
 
 newFormView.addEventListener('click', function (event) {
@@ -120,12 +105,27 @@ newFormView.addEventListener('click', function (event) {
   }
 });
 
+submitJournalEntry.addEventListener('click', function (event) {
+  var eventTarget = event.target;
+  if (eventTarget.matches('.submit-button')) {
+    var dataViewAttribute = eventTarget.getAttribute('data-view');
+    for (let i = 0; i < viewNodeList.length; i++) {
+      var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
+      if (dataViewAttribute === nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view');
+        data.view = nodeListAttribute;
+      } else if (dataViewAttribute !== nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view hidden');
+      }
+    }
+  }
+});
+
 window.addEventListener('load', function (event) {
   for (let i = 0; i < viewNodeList.length; i++) {
     var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
     if (data.view === nodeListAttribute) {
       viewNodeList[i].setAttribute('class', 'view');
-      data.view = nodeListAttribute;
     } else if (data.view !== nodeListAttribute) {
       viewNodeList[i].setAttribute('class', 'view hidden');
     }

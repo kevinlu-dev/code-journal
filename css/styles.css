@@ -5,6 +5,7 @@ body {
 
 h1 {
   font-weight: bold;
+  margin-left: 0.5rem;
 }
 
 header {
@@ -89,13 +90,11 @@ li {
 
 a {
   text-decoration: none;
-  overflow: hidden;
   font-weight: lighter;
   cursor: pointer;
 }
 
 h3 {
-  text-align: center;
   margin-top: 1.5rem;
 }
 
@@ -107,11 +106,7 @@ h3 a {
 
 .nav-location {
   display: flex;
-  flex-wrap: wrap;
-}
-
-.hidden {
-  display: none;
+  margin-left: 1.5rem;
 }
 
 .entries-left {
@@ -123,4 +118,10 @@ h3 a {
   margin: 1.5rem 1.5rem 0;
   display: inline-block;
   float: right;
+}
+
+.para-location {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 }
