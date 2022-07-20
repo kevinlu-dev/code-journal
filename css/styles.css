@@ -79,7 +79,7 @@ ul {
 
 li {
   list-style-type: none;
-  display: inline-block;
+  display: block;
 }
 
 .column-half {
@@ -119,7 +119,8 @@ h3 a {
   margin: 1.5rem 1.5rem 0;
 }
 
-.button-new {
+.user-new {
   margin: 1.5rem 1.5rem 0;
+  display: inline-block;
   float: right;
 }

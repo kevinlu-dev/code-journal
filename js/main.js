@@ -76,6 +76,7 @@ tabContLocation.addEventListener('click', function (event) {
       var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
       if (dataViewAttribute === nodeListAttribute) {
         viewNodeList[i].setAttribute('class', 'view');
+        data.view = nodeListAttribute;
       } else if (dataViewAttribute !== nodeListAttribute) {
         viewNodeList[i].setAttribute('class', 'view hidden');
       }
@@ -93,6 +94,7 @@ submitEntriesView.addEventListener('click', function (event) {
       var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
       if (dataViewAttribute === nodeListAttribute) {
         viewNodeList[i].setAttribute('class', 'view');
+        data.view = nodeListAttribute;
       } else if (dataViewAttribute !== nodeListAttribute) {
         viewNodeList[i].setAttribute('class', 'view hidden');
       }
@@ -110,9 +112,22 @@ newFormView.addEventListener('click', function (event) {
       var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
       if (dataViewAttribute === nodeListAttribute) {
         viewNodeList[i].setAttribute('class', 'view');
+        data.view = nodeListAttribute;
       } else if (dataViewAttribute !== nodeListAttribute) {
         viewNodeList[i].setAttribute('class', 'view hidden');
       }
+    }
+  }
+});
+
+window.addEventListener('load', function (event) {
+  for (let i = 0; i < viewNodeList.length; i++) {
+    var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
+    if (data.view === nodeListAttribute) {
+      viewNodeList[i].setAttribute('class', 'view');
+      data.view = nodeListAttribute;
+    } else if (data.view !== nodeListAttribute) {
+      viewNodeList[i].setAttribute('class', 'view hidden');
     }
   }
 });
