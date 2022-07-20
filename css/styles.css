@@ -3,15 +3,8 @@ body {
   font-family: sans-serif;
 }
 
-h2 {
+h1 {
   font-weight: bold;
-}
-
-h3 {
-  color: white;
-  padding: 1rem;
-  margin: 0;
-  font-weight: lighter;
 }
 
 header {
@@ -92,4 +85,41 @@ li {
 .column-half {
   margin: 0;
   display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  overflow: hidden;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+h3 {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+h2 a,
+h3 a {
+  color: white;
+  margin-right: 1.5rem;
+}
+
+.nav-location {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.entries-left {
+  display: inline-block;
+  margin: 1.5rem 1.5rem 0;
+}
+
+.button-new {
+  margin: 1.5rem 1.5rem 0;
+  float: right;
 }

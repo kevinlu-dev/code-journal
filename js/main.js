@@ -6,7 +6,8 @@ inputPhotoUrl.addEventListener('input', function (event) {
   defaultPhoto.src = event.target.value;
 });
 
-submitJournalEntry.addEventListener('submit', function (event) {
+submitJournalEntry.addEventListener('submit', submitFunction);
+function submitFunction(event) {
   event.preventDefault();
   var journalAll = {
     title: submitJournalEntry.elements.title.value,
@@ -17,44 +18,101 @@ submitJournalEntry.addEventListener('submit', function (event) {
   data.entries.unshift(journalAll);
   defaultPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
   document.getElementById('code-journal-form').reset();
+  var ulSelect = document.querySelector('ul');
+  var callFunction = journalEntry(journalAll);
+  ulSelect.prepend(callFunction);
 
-  function journalEntry(entry) {
-    var newListing = document.createElement('li');
+}
 
-    var newRow = document.createElement('div');
-    newRow.setAttribute('class', 'row');
-    newListing.appendChild(newRow);
+function journalEntry(entry) {
+  var newListing = document.createElement('li');
 
-    var newColumnHalfOne = document.createElement('div');
-    newColumnHalfOne.setAttribute('class', 'column-half');
-    newRow.appendChild(newColumnHalfOne);
+  var newRow = document.createElement('div');
+  newRow.setAttribute('class', 'row');
+  newListing.appendChild(newRow);
 
-    var newImage = document.createElement('img');
-    newImage.setAttribute('src', entry.photoUrl);
-    newColumnHalfOne.appendChild(newImage);
+  var newColumnHalfOne = document.createElement('div');
+  newColumnHalfOne.setAttribute('class', 'column-half');
+  newRow.appendChild(newColumnHalfOne);
 
-    var newColumnHalfTwo = document.createElement('div');
-    newColumnHalfTwo.setAttribute('class', 'column-half');
-    newRow.appendChild(newColumnHalfTwo);
+  var newImage = document.createElement('img');
+  newImage.setAttribute('src', entry.photoUrl);
+  newColumnHalfOne.appendChild(newImage);
 
-    var newHeadingTwo = document.createElement('h2');
-    var journalTitle = document.createTextNode(entry.title);
-    newColumnHalfTwo.appendChild(newHeadingTwo);
-    newHeadingTwo.appendChild(journalTitle);
+  var newColumnHalfTwo = document.createElement('div');
+  newColumnHalfTwo.setAttribute('class', 'column-half');
+  newRow.appendChild(newColumnHalfTwo);
 
-    var newParagraph = document.createElement('p');
-    var journalNotes = document.createTextNode(entry.notes);
-    newColumnHalfTwo.appendChild(newParagraph);
-    newParagraph.appendChild(journalNotes);
+  var newHeadingTwo = document.createElement('h2');
+  var journalTitle = document.createTextNode(entry.title);
+  newColumnHalfTwo.appendChild(newHeadingTwo);
+  newHeadingTwo.appendChild(journalTitle);
 
-    return newListing;
-  }
+  var newParagraph = document.createElement('p');
+  var journalNotes = document.createTextNode(entry.notes);
+  newColumnHalfTwo.appendChild(newParagraph);
+  newParagraph.appendChild(journalNotes);
 
+  return newListing;
+}
+
+document.addEventListener('DOMContentLoaded', function (event) {
   var ulCreatePoint = document.querySelector('.create-point');
 
   for (let i = 0; i < data.entries.length; i++) {
     var dataEntriesLoop = journalEntry(data.entries[i]);
     ulCreatePoint.appendChild(dataEntriesLoop);
   }
+});
 
+var tabContLocation = document.querySelector('.nav-location');
+var viewNodeList = document.querySelectorAll('.view');
+
+tabContLocation.addEventListener('click', function (event) {
+  var eventTarget = event.target;
+  if (eventTarget.matches('.tab')) {
+    var dataViewAttribute = eventTarget.getAttribute('data-view');
+    for (let i = 0; i < viewNodeList.length; i++) {
+      var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
+      if (dataViewAttribute === nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view');
+      } else if (dataViewAttribute !== nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view hidden');
+      }
+    }
+  }
+});
+
+var submitEntriesView = document.querySelector('.user-submit');
+
+submitEntriesView.addEventListener('click', function (event) {
+  var eventTarget = event.target;
+  if (eventTarget.matches('.submit-button')) {
+    var dataViewAttribute = eventTarget.getAttribute('data-view');
+    for (let i = 0; i < viewNodeList.length; i++) {
+      var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
+      if (dataViewAttribute === nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view');
+      } else if (dataViewAttribute !== nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view hidden');
+      }
+    }
+  }
+});
+
+var newFormView = document.querySelector('.user-new');
+
+newFormView.addEventListener('click', function (event) {
+  var eventTarget = event.target;
+  if (eventTarget.matches('.button-new')) {
+    var dataViewAttribute = eventTarget.getAttribute('data-view');
+    for (let i = 0; i < viewNodeList.length; i++) {
+      var nodeListAttribute = viewNodeList[i].getAttribute('data-view');
+      if (dataViewAttribute === nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view');
+      } else if (dataViewAttribute !== nodeListAttribute) {
+        viewNodeList[i].setAttribute('class', 'view hidden');
+      }
+    }
+  }
 });

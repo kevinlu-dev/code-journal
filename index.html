@@ -17,12 +17,15 @@
 <body>
   <header>
     <div class="container">
-      <h3>Code Journal</h3>
+      <div class="nav-location">
+        <h2><a class="tab active" data-view="entry-form">Code Journal</a></h2>
+        <h3><a class="tab" data-view="entries">Entries</a></h3>
+      </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div data-view="entry-form">
+      <div class="view" data-view="entry-form">
         <form id="code-journal-form">
           <h1>New Entry</h1>
 
@@ -45,7 +48,7 @@
             <textarea required rows="5" name="notes" id="user-message"></textarea>
 
             <div class="user-submit">
-              <button type="submit">SAVE</button>
+              <button class="submit-button" data-view="entries" type="submit">SAVE</button>
             </div>
           </div>
         </form>
@@ -53,27 +56,13 @@
     </div>
 
     <div class="container">
-      <div data-view="entries">
+      <div class="view hidden " data-view="entries">
+        <h1 class="entries-left">Entries</h1>
+        <div class="user-new">
+          <button class="button-new" data-view="entry-form">NEW</button>
+        </div>
         <ul class="create-point">
-          <li>
-            <div class="row">
-              <div class="column-half">
-                <img src="images/placeholder-image-square.jpg" alt="placeholder image">
-              </div>
-              <div class="column-half">
-                <h2>Ada Lovelace</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate cum, ab quasi ipsum placeat
-                  similique
-                  vero aperiam fugit a expedita neque natus nesciunt ut beatae corporis eos temporibus! Numquam
-                  distinctio hic
-                  voluptatum fugiat, laudantium debitis, ipsam, deleniti quaerat corrupti doloribus consectetur magnam
-                  incidunt iure
-                  tempore repellendus odio. Doloremque id explicabo eveniet dolore molestiae nam, iste libero
-                  praesentium,
-                  non cum necessitatibus.</p>
-              </div>
-            </div>
-          </li>
+
         </ul>
       </div>
     </div>
