@@ -4,15 +4,18 @@ body {
 }
 
 h2 {
-  font-weight: 400;
+  font-weight: bold;
 }
 
 h3 {
-  background-color: #562b81;
   color: white;
   padding: 1rem;
   margin: 0;
   font-weight: lighter;
+}
+
+header {
+  background-color: #562b81;
 }
 
 form {
@@ -75,4 +78,18 @@ button:hover {
 .user-submit {
   display: flex;
   justify-content: flex-end;
+}
+
+ul {
+  padding: 1rem;
+}
+
+li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.column-half {
+  margin: 0;
+  display: inline-block;
 }

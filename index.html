@@ -1,56 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
-    <h3>Code Journal</h3>
+    <div class="container">
+      <h3>Code Journal</h3>
+    </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form id="code-journal-form">
-        <h1>New Entry</h1>
+    <div class="container">
+      <div data-view="entry-form">
+        <form id="code-journal-form">
+          <h1>New Entry</h1>
 
-        <div class="row">
-          <div class="column-half">
-            <img src="images/placeholder-image-square.jpg" alt="placeholder image" id="image-preview">
+          <div class="row">
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg" alt="placeholder image" id="image-preview">
+            </div>
+
+            <div class="column-half">
+              <label for="user-title">Title</label>
+              <input required name="title" type="text" id="user-title">
+
+              <label for="user-photo-url">Photo URL</label>
+              <input required name="photourl" type="url" value="" id="user-photo-url" />
+
+            </div>
           </div>
+          <div class="column-full">
+            <label for="user-message">Notes</label>
+            <textarea required rows="5" name="notes" id="user-message"></textarea>
 
-          <div class="column-half">
-            <label for="user-title">Title</label>
-            <input required name="title" type="text" id="user-title">
-
-            <label for="user-photo-url">Photo URL</label>
-            <input required name="photourl" type="url" value="" id="user-photo-url" />
-
+            <div class="user-submit">
+              <button type="submit">SAVE</button>
+            </div>
           </div>
-        </div>
-        <div class="column-full">
-          <label for="user-message">Notes</label>
-          <textarea required rows="5" name="notes" id="user-message"></textarea>
+        </form>
+      </div>
+    </div>
 
-          <div class="user-submit">
-            <button type="submit">SAVE</button>
-          </div>
-        </div>
-
-      </form>
+    <div class="container">
+      <div data-view="entries">
+        <ul class="create-point">
+          <li>
+            <div class="row">
+              <div class="column-half">
+                <img src="images/placeholder-image-square.jpg" alt="placeholder image">
+              </div>
+              <div class="column-half">
+                <h2>Ada Lovelace</h2>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate cum, ab quasi ipsum placeat
+                  similique
+                  vero aperiam fugit a expedita neque natus nesciunt ut beatae corporis eos temporibus! Numquam
+                  distinctio hic
+                  voluptatum fugiat, laudantium debitis, ipsam, deleniti quaerat corrupti doloribus consectetur magnam
+                  incidunt iure
+                  tempore repellendus odio. Doloremque id explicabo eveniet dolore molestiae nam, iste libero
+                  praesentium,
+                  non cum necessitatibus.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

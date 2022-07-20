@@ -17,4 +17,44 @@ submitJournalEntry.addEventListener('submit', function (event) {
   data.entries.unshift(journalAll);
   defaultPhoto.setAttribute('src', 'images/placeholder-image-square.jpg');
   document.getElementById('code-journal-form').reset();
+
+  function journalEntry(entry) {
+    var newListing = document.createElement('li');
+
+    var newRow = document.createElement('div');
+    newRow.setAttribute('class', 'row');
+    newListing.appendChild(newRow);
+
+    var newColumnHalfOne = document.createElement('div');
+    newColumnHalfOne.setAttribute('class', 'column-half');
+    newRow.appendChild(newColumnHalfOne);
+
+    var newImage = document.createElement('img');
+    newImage.setAttribute('src', entry.photoUrl);
+    newColumnHalfOne.appendChild(newImage);
+
+    var newColumnHalfTwo = document.createElement('div');
+    newColumnHalfTwo.setAttribute('class', 'column-half');
+    newRow.appendChild(newColumnHalfTwo);
+
+    var newHeadingTwo = document.createElement('h2');
+    var journalTitle = document.createTextNode(entry.title);
+    newColumnHalfTwo.appendChild(newHeadingTwo);
+    newHeadingTwo.appendChild(journalTitle);
+
+    var newParagraph = document.createElement('p');
+    var journalNotes = document.createTextNode(entry.notes);
+    newColumnHalfTwo.appendChild(newParagraph);
+    newParagraph.appendChild(journalNotes);
+
+    return newListing;
+  }
+
+  var ulCreatePoint = document.querySelector('.create-point');
+
+  for (let i = 0; i < data.entries.length; i++) {
+    var dataEntriesLoop = journalEntry(data.entries[i]);
+    ulCreatePoint.appendChild(dataEntriesLoop);
+  }
+
 });
