@@ -22,8 +22,9 @@ function submitFunction(event) {
   var ulSelect = document.querySelector('ul');
   var callFunction = journalEntry(journalAll);
   ulSelect.prepend(callFunction);
+
   var paraLocation = document.querySelector('.para-location');
-  paraLocation.setAttribute('class', 'hidden');
+  paraLocation.setAttribute('class', 'para-loaction hidden');
 
 }
 
@@ -131,3 +132,11 @@ window.addEventListener('load', function (event) {
     }
   }
 });
+
+var paraLocation = document.querySelector('.para-location');
+var dataArray = data.entries;
+for (let i = 0; i < dataArray.length; i++) {
+  if (dataArray[i] !== 0) {
+    paraLocation.setAttribute('class', 'para-loaction hidden');
+  }
+}
