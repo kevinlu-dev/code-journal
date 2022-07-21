@@ -1,56 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
-    <h3>Code Journal</h3>
+    <div class="container">
+      <div class="nav-location">
+        <h2><a class="tab active" data-view="entry-form">Code Journal</a></h2>
+        <h3><a class="tab" data-view="entries">Entries</a></h3>
+      </div>
+    </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form id="code-journal-form">
-        <h1>New Entry</h1>
+    <div class="container">
+      <div class="view" data-view="entry-form">
+        <form id="code-journal-form">
+          <h1>New Entry</h1>
 
-        <div class="row">
-          <div class="column-half">
-            <img src="images/placeholder-image-square.jpg" alt="placeholder image" id="image-preview">
+          <div class="row">
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg" alt="placeholder image" id="image-preview">
+            </div>
+
+            <div class="column-half">
+              <label for="user-title">Title</label>
+              <input required name="title" type="text" id="user-title">
+
+              <label for="user-photo-url">Photo URL</label>
+              <input required name="photourl" type="url" value="" id="user-photo-url" />
+
+            </div>
           </div>
+          <div class="column-full">
+            <label for="user-message">Notes</label>
+            <textarea required rows="5" name="notes" id="user-message"></textarea>
 
-          <div class="column-half">
-            <label for="user-title">Title</label>
-            <input required name="title" type="text" id="user-title">
-
-            <label for="user-photo-url">Photo URL</label>
-            <input required name="photourl" type="url" value="" id="user-photo-url" />
-
+            <div class="user-submit">
+              <button class="submit-button" data-view="entries" type="submit">SAVE</button>
+            </div>
           </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="view hidden " data-view="entries">
+        <h1 class="entries-left">Entries</h1>
+        <div class="user-new">
+          <button class="button-new" data-view="entry-form">NEW</button>
         </div>
-        <div class="column-full">
-          <label for="user-message">Notes</label>
-          <textarea required rows="5" name="notes" id="user-message"></textarea>
-
-          <div class="user-submit">
-            <button type="submit">SAVE</button>
-          </div>
+        <div class="para-location">
+          <p class="para">No Entries have been recorded.</p>
         </div>
+        <ul class="create-point">
 
-      </form>
+        </ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>
